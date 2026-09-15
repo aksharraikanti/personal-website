@@ -1,0 +1,24 @@
+# Akshar Raikanti
+
+> Software engineer and Purdue CS/AI student. Shipped agentic AI systems at
+> Google and Tesla, co-founded a B2B AI startup (Brydge), and built RAG
+> pipelines and backend systems at Textron, Kohl's, and TransSIGHT.
+
+This site publishes structured, machine-readable data for agents and tools:
+
+- [/api/profile.json](https://aksharraikanti.github.io/api/profile.json) — name, contact info, links, resume URL
+- [/api/experience.json](https://aksharraikanti.github.io/api/experience.json) — full work history
+- [/api/projects.json](https://aksharraikanti.github.io/api/projects.json) — project list with descriptions, stack, links
+- [/api/skills.json](https://aksharraikanti.github.io/api/skills.json) — grouped skill list
+- [/resume.pdf](https://aksharraikanti.github.io/resume.pdf) — resume PDF
+
+A Model Context Protocol (MCP) server exposing this data as callable tools
+(plus a `contact_me` action) is available at:
+https://akshar-portfolio-mcp.<account-subdomain>.workers.dev/mcp
+(see /mcp-server in the site's GitHub repo for source and deploy instructions)
+
+## Site
+
+- Homepage: https://aksharraikanti.github.io/
+- GitHub: https://github.com/aksharraikanti
+- LinkedIn: https://www.linkedin.com/in/aksharraikanti/

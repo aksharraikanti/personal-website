@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { site } from '@/content/site';
+import { experience } from '@/content/experience';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { CommandPaletteProvider } from '@/components/command-palette/CommandPaletteProvider';
 import { CommandPalette } from '@/components/command-palette/CommandPalette';
@@ -55,10 +56,29 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
 };
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  url: site.url,
+  email: `mailto:${site.email}`,
+  telephone: site.phone,
+  jobTitle: experience[0]?.role,
+  worksFor: experience[0] ? { '@type': 'Organization', name: experience[0].company } : undefined,
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'Purdue University' },
+  sameAs: [site.github, site.linkedin],
+  description: site.description,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <body className="font-sans">
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`}
           strategy="afterInteractive"
